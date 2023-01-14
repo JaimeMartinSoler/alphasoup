@@ -1,0 +1,535 @@
+global:
+  lang:
+    es:
+      letters: &LETTERS_ES [A, B, C, D, E, F, G, H, I, J, K, L, M, N, Ñ, O, P, Q, R, S, T, U, V, W, X, Y, Z]
+      # https://es.wikipedia.org/wiki/Frecuencia_de_aparici%C3%B3n_de_letras#Frecuencia_de_aparici%C3%B3n_de_letras_en_espa%C3%B1ol
+      #letters_weights_map: &LETTERS_WEIGHTS_ES {K: 0.5, Ñ: 0.2, Q: 0.5, W: 0.2, X: 0.2, Y: 0.5}
+      letters_weights_map: &LETTERS_WEIGHTS_ES {A: 0.1253, B: 0.0142, C: 0.0468, D: 0.0586, E: 0.1368, F: 0.0069, G: 0.0101, H: 0.0070, I: 0.0625, J: 0.0044, K: 0.0002, L: 0.0497, M: 0.0315, N: 0.0671, Ñ: 0.0031, O: 0.0868, P: 0.0251, Q: 0.0088, R: 0.0687, S: 0.0798, T: 0.0463, U: 0.0393, V: 0.0090, W: 0.0001, X: 0.0022, Y: 0.0090, Z: 0.0052}
+  ways:
+    ways_easy: &WAYS_EASY [E, S]
+    ways_normal: &WAYS_NORMAL [E, SE, S]
+    ways_ALL: &WAYS_ALL [E, SE, S, SW, W, NW, N, NE]
+
+defaults:
+
+  html: &HTML
+    title: null
+    description: ''
+    ways_allowed_text: &WAY_ALLOWED_TEXT ''
+    word_cols: &WORD_COLS null
+    word_per_col_max: &WORD_PER_COL_MAX 8
+    word_checkers: &WORD_CHECKERS 8
+    table_soup_px_max: &TABLE_SOUP_PX_MAX 600
+    px_per_cell: &PX_PER_CELL 40
+    td_soup_font_size_px: &TD_SOUP_FONT_SIZE_PX 20
+    td_word_font_size_px: &TD_WORD_FONT_SIZE_PX 16
+
+  pdfa5: &PDFA5
+    options: &PDFA5_OPTIONS {
+      'enable-local-file-access': '',  # https://stackoverflow.com/questions/73599970/how-to-solve-wkhtmltopdf-reported-an-error-exit-with-code-1-due-to-network-err
+      'page-size': 'A5',
+      'margin-top': '0.25in',
+      'margin-right': '0.25in',
+      'margin-bottom': '0.10in',
+      'margin-left': '0.25in',
+      'encoding': 'UTF-8'
+    }
+
+pages:
+
+  - alphasoup:
+      rows: 12
+      cols: 12
+      letters: *LETTERS_ES
+      letters_weights_map: *LETTERS_WEIGHTS_ES
+      words:
+        - JESUSABU
+        - ABUELA
+        - ROSARIO
+        - JESUS
+        - CARLOSTIO
+        - MAMEN
+        - JAIME
+        - RAQUEL
+        - CARLOS
+        - EDU
+      ways: *WAYS_NORMAL
+    html:
+      <<: *HTML
+      title: LA FAMILIA
+    pdfa5: *PDFA5
+
+  - alphasoup:
+      rows: 14
+      cols: 14
+      letters: *LETTERS_ES
+      letters_weights_map: *LETTERS_WEIGHTS_ES
+      words:
+        - CEFERINA
+        - MARIANO
+        - ANTONIO
+        - VITORIA
+        - DEMETRIO
+        - ROSARIO
+        - JESUS
+        - CARMEN
+        - JAIME
+        - RAQUEL
+        - CARLOS
+        - EDU
+      ways: *WAYS_NORMAL
+    html:
+      <<: *HTML
+      title: MÁS FAMILIA
+    pdfa5: *PDFA5
+
+  - alphasoup:
+      rows: 15
+      cols: 15
+      letters: *LETTERS_ES
+      letters_weights_map: *LETTERS_WEIGHTS_ES
+      words:
+        - GOODY
+        - KITTY
+        - ALBERTO
+        - OTIS
+        - SIMBA
+        - FLUFFY
+        - SHERPITA
+        - FRANKY
+        - ROCKY
+        - POPPA
+      ways: *WAYS_NORMAL
+    html:
+      <<: *HTML
+      title: ANIMALES DE LA FAMILIA
+    pdfa5: *PDFA5
+
+  - alphasoup:
+      rows: 20
+      cols: 20
+      letters: *LETTERS_ES
+      letters_weights_map: *LETTERS_WEIGHTS_ES
+      words:
+        - ABUELO
+        - ABUELA
+        - PADRE
+        - MADRE
+        - PADRASTRO
+        - MADRASTRA
+        - TIO
+        - TIA
+        - SUEGRO
+        - SUEGRA
+        - YERNO
+        - NUERA
+        - HERMANO
+        - HERMANA
+        - PRIMO
+        - PRIMA
+        - CUÑADO
+        - CUÑADA
+        - HIJO
+        - HIJA
+        - SOBRINO
+        - SOBRINA
+        - NIETO
+        - NIETA
+      ways: *WAYS_NORMAL
+    html:
+      <<: *HTML
+      title: PARENTESCOS FAMILIARES
+    pdfa5: *PDFA5
+
+  - alphasoup:
+      rows: 15
+      cols: 15
+      letters: *LETTERS_ES
+      letters_weights_map: *LETTERS_WEIGHTS_ES
+      words:
+        - CUATROCAMINOS
+        - ALVARADO
+        - PALENCIA
+        - ABADIA
+        - VALLECAS
+        - CIUDADLINEAL
+        - ALCALA
+        - PARQUE
+        - TAMPICO
+        - CONRADOCAMPO
+      ways: *WAYS_NORMAL
+    html:
+      <<: *HTML
+      title: BARRIOS Y CALLES
+    pdfa5: *PDFA5
+
+  - alphasoup:
+      rows: 15
+      cols: 15
+      letters: *LETTERS_ES
+      letters_weights_map: *LETTERS_WEIGHTS_ES
+      words:
+        - SANTIUSTE
+        - PEDRAZA
+        - TIERRAS
+        - ERA
+        - HUERTO
+        - VACA
+        - CERDO
+        - GALLINA
+        - LLOSA
+        - PLAZA
+        - CUADRA
+        - MOJON
+      ways: *WAYS_NORMAL
+    html:
+      <<: *HTML
+      title: SANTIUSTE DE PEDRAZA
+    pdfa5: *PDFA5
+
+  - alphasoup:
+      rows: 15
+      cols: 15
+      letters: *LETTERS_ES
+      letters_weights_map: *LETTERS_WEIGHTS_ES
+      words:
+        - COLLADO
+        - VILLALBA
+        - CUCHARA
+        - PATOS
+        - OCAS
+        - PAVOREAL
+        - FUTBOL
+        - TENIS
+        - GAMEBOY
+        - TETRIS
+        - ZAPATILLA
+        - CINTO
+      ways: *WAYS_NORMAL
+    html:
+      <<: *HTML
+      title: LA SIERRA
+    pdfa5: *PDFA5
+
+  - alphasoup:
+      rows: 15
+      cols: 15
+      letters: *LETTERS_ES
+      letters_weights_map: *LETTERS_WEIGHTS_ES
+      words:
+        - POTAJE
+        - BIZCOCHO
+        - GAZPACHO
+        - MELON
+        - YOGUR
+        - PIZZA
+        - BOTADEVINO
+        - CHUCHES
+        - CHICLEMELON
+        - ENSALADAARROZ
+      ways: *WAYS_NORMAL
+    html:
+      <<: *HTML
+      title: COMIDAS DE LA SIERRA
+    pdfa5: *PDFA5
+
+  - alphasoup:
+      rows: 15
+      cols: 15
+      letters: *LETTERS_ES
+      letters_weights_map: *LETTERS_WEIGHTS_ES
+      words:
+        - FRUTA
+        - PESCADO
+        - CARNE
+        - PATATAS
+        - PERAS
+        - NARANJAS
+        - PEREJIL
+        - CONSERVAS
+        - ACEITUNAS
+        - YOGUR
+      ways: *WAYS_NORMAL
+    html:
+      <<: *HTML
+      title: MERCADO
+    pdfa5: *PDFA5
+
+  - alphasoup:
+      rows: 15
+      cols: 15
+      letters: *LETTERS_ES
+      letters_weights_map: *LETTERS_WEIGHTS_ES
+      words:
+        - MAQUINA
+        - ALFA
+        - PEDAL
+        - HILVANAR
+        - AGUJA
+        - IMPERDIBLE
+        - PATRON
+        - TIJERAS
+        - HILO
+        - COSER
+        - TELA
+        - ARREGLO
+        - FALDA
+        - ZURCIR
+      ways: *WAYS_NORMAL
+    html:
+      <<: *HTML
+      title: 'COSTURA: MATERIALES'
+    pdfa5: *PDFA5
+
+  - alphasoup:
+      rows: 15
+      cols: 15
+      letters: *LETTERS_ES
+      letters_weights_map: *LETTERS_WEIGHTS_ES
+      words:
+        - PANTUFLAS
+        - ARBOLNAVIDAD
+        - SERVILLETERO
+        - COLGADOR
+        - CABECERO
+        - FUNDACLINEX
+        - SERVILLETA
+        - MANTA
+        - MANOPLA
+        - JUEGOSGATOS
+      ways: *WAYS_NORMAL
+    html:
+      <<: *HTML
+      title: 'COSTURA: COSAS FABRICADAS'
+    pdfa5: *PDFA5
+
+  - alphasoup:
+      rows: 15
+      cols: 15
+      letters: *LETTERS_ES
+      letters_weights_map: *LETTERS_WEIGHTS_ES
+      words:
+        - JERSEY
+        - PANTALON
+        - BUFANDA
+        - CAMISA
+        - CAMISETA
+        - CALZONCILLO
+        - BRAGAS
+        - CALCETIN
+        - ABRIGO
+        - REBECA
+        - CHAQUETA
+        - CHALECO
+      ways: *WAYS_NORMAL
+    html:
+      <<: *HTML
+      title: ROPA
+    pdfa5: *PDFA5
+
+  - alphasoup:
+      rows: 15
+      cols: 15
+      letters: *LETTERS_ES
+      letters_weights_map: *LETTERS_WEIGHTS_ES
+      words:
+        - LAUNO
+        - LADOS
+        - ANTENATRES
+        - CUATRO
+        - TELECINCO
+        - LASEXTA
+        - TELEMADRID
+        - LAOTRA
+        - INTERECONOMIA
+        - TRECETV
+      ways: *WAYS_NORMAL
+    html:
+      <<: *HTML
+      title: CANALES DE TELEVISIÓN
+    pdfa5: *PDFA5
+
+  - alphasoup:
+      rows: 15
+      cols: 15
+      letters: *LETTERS_ES
+      letters_weights_map: *LETTERS_WEIGHTS_ES
+      words:
+        - UNDOSTRES
+        - GRANDPRIX
+        - PRECIOJUSTO
+        - LLUVIA
+        - ESTRELLAS
+        - PASAPALABRA
+        - QUEAPOSTAMOS
+        - MASTERCHEF
+        - AHORACAIGO
+        - BOOM
+      ways: *WAYS_NORMAL
+    html:
+      <<: *HTML
+      title: CONCURSOS DE LA TELE
+    pdfa5: *PDFA5
+
+  - alphasoup:
+      rows: 14
+      cols: 14
+      letters: *LETTERS_ES
+      letters_weights_map: *LETTERS_WEIGHTS_ES
+      words:
+        - ANNE
+        - IGARTIBURU
+        - BRONCANO
+        - JORDI
+        - HURTADO
+        - PABLO
+        - MOTOS
+        - RISTO
+        - MEJIDE
+        - WYOMING
+        - RAMON
+        - GARCIA
+      ways: *WAYS_NORMAL
+    html:
+      <<: *HTML
+      title: PRESENTADORES DE TELEVISIÓN
+    pdfa5: *PDFA5
+
+  - alphasoup:
+      rows: 15
+      cols: 15
+      letters: *LETTERS_ES
+      letters_weights_map: *LETTERS_WEIGHTS_ES
+      words:
+        - COSTURA
+        - MAQUINACOSER
+        - ZAPATILLA
+        - PANTUFLAS
+        - MEDIAS
+        - COCINAR
+        - EBOOK
+        - LIBROS
+        - CINCUENTA
+        - EUROS
+      ways: *WAYS_ALL
+    html:
+      <<: *HTML
+      title: LA ABUELA Y SUS COSAS
+    pdfa5: *PDFA5
+
+  - alphasoup:
+      rows: 15
+      cols: 15
+      letters: *LETTERS_ES
+      letters_weights_map: *LETTERS_WEIGHTS_ES
+      words:
+        - COSTURA
+        - CINTO
+        - FABRICA
+        - POLEAS
+        - BASTON
+        - LUPA
+        - CUENTAS
+        - BARRER
+        - VENTAS
+        - AUTOBUS
+        - CADERA
+        - TRASTERO
+      ways: *WAYS_ALL
+    html:
+      <<: *HTML
+      title: EL ABUELO Y SUS COSAS
+    pdfa5: *PDFA5
+
+
+  - alphasoup:
+      rows: 15
+      cols: 15
+      letters: *LETTERS_ES
+      letters_weights_map: *LETTERS_WEIGHTS_ES
+      words:
+        - JUBILACION
+        - CUENTAS
+        - PISOS
+        - COCACOLA
+        - CONGELADOR
+        - ALCOCEBER
+        - PASEAR
+        - MARCAPASOS
+        - REPSOL
+        - IMSERSO
+      ways: *WAYS_ALL
+    html:
+      <<: *HTML
+      title: JESÚS Y SUS COSAS
+    pdfa5: *PDFA5
+
+  - alphasoup:
+      rows: 15
+      cols: 15
+      letters: *LETTERS_ES
+      letters_weights_map: *LETTERS_WEIGHTS_ES
+      words:
+        - AEROPUERTO
+        - PAQUETES
+        - CONTRABANDO
+        - DROGA
+        - TELETRABAJO
+        - GAFAS
+        - PASEOS
+        - INSOMNIO
+        - PANDORA
+        - COCINAR
+      ways: *WAYS_ALL
+    html:
+      <<: *HTML
+      title: MAMEN Y SUS COSAS
+    pdfa5: *PDFA5
+
+  - alphasoup:
+      rows: 24
+      cols: 24
+      letters: *LETTERS_ES
+      letters_weights_map: *LETTERS_WEIGHTS_ES
+      words:
+        # JAIME
+        - MAYOR
+        - PADEL
+        - PINGPONG
+        - MALABARES
+        - INGENIERO
+        - CUTREREGALOS
+        - WHISKEY
+        - CAÑAVERAL
+        # RAQUEL
+        - ALEGRIA
+        - HUERTA
+        - ENFERMERA
+        - NEONATOS
+        - CRASH
+        - CAMARA
+        - PARCHE
+        - GAFAS
+        # CARLOS
+        - GAMEBOY
+        - PLAYSTATION
+        - POKEMON
+        - DRAGONBALL
+        - FUTBOL
+        - DECATHLON
+        - EXPERTO
+        - CAJAS
+        # EDU
+        - MENOR
+        - MOTO
+        - FORMULAUNO
+        - TECNICO
+        - SONIDO
+        - MANTITA
+        - LEGO
+        - PUZZLE
+      ways: *WAYS_ALL
+    html:
+      <<: *HTML
+      title: LOS NIETOS Y SUS COSAS
+    pdfa5: *PDFA5

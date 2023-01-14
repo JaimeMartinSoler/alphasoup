@@ -1,0 +1,130 @@
+
+/* FONTS */
+
+@font-face {
+    font-family: ArialLocal;
+    src: url(../../common/ttf/arial.ttf);
+}
+
+/* TITLES */
+
+.title {
+    color: #5e9ca0;
+    text-align: center;
+    font-weight: bold;
+    font-size: 30px;
+    font-family: "Arial", "ArialLocal", "Courier New";
+}
+
+.description {
+    color: #404040;
+    font-size: 14px;
+    font-family: "Arial", "ArialLocal", "Courier New";
+}
+
+/* IMAGES */
+
+.images-container {
+    display: flex;
+    justify-content: center;
+}
+
+.images-container img {
+    margin-left: 3px;
+    margin-right: 3px;
+    width: 35px;
+}
+
+
+/* WORD LIST TABLE */
+
+.table-word_list_container {
+    table-layout: fixed;
+    width: 100%;
+    border: 0px;
+    font-family: "Arial", "ArialLocal", "Courier New";
+}
+
+.td-word_column_container {
+    width: __TAG_TD_WORD_COLUMN_CONTAINER_WIDTH__%;
+}
+
+.table-word_column_container {
+    width: 100%;
+    border: 0px;
+    font-family: "Arial", "ArialLocal", "Courier New";
+}
+
+.td-word_checker_container {
+    width: 40%;  /* vs: td-word */
+}
+
+.table-word_checker {
+    border: 1px solid;
+    border-collapse: collapse;
+    align: center;
+    margin-left: auto;
+    margin-right: 0px;
+}
+
+.td-word_checker {
+    border: 1px solid;
+    border-color: #E0E0F0;
+    width: 15px;
+    height: 20px;
+    text-align: center;
+}
+
+.td-word {
+    width: 60%;  /* vs: td-word_checker_container */
+    padding-left: 10px;
+    font-size: __TAG_TD_WORD_FONT_SIZE_PX__px;
+    font-family: "Arial", "ArialLocal", "Courier New";
+}
+
+
+/* WAYS ALLOWED */
+
+.table-ways_allowed {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* SOUP OUTER FRAME */
+
+.table-soup_outer_frame {
+    width: 100%;
+}
+
+/* SOUP */
+
+.table-soup {
+    height: __TAG_TABLE_SOUP_HEIGHT__px;
+    width: __TAG_TABLE_SOUP_WIDTH__px;
+    border: 1px solid;
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tr-soup {
+}
+
+.td-soup {
+    border: 0px;
+    text-align: center;
+    font-size: __TAG_TD_SOUP_FONT_SIZE_PX__px;
+    font-family: "Arial", "ArialLocal", "Courier New";
+}
+
+
+/* PAGE IDX */
+
+.page_idx {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align:center;
+    font-size: 16px;
+    font-family: "Arial", "ArialLocal", "Courier New";
+}
