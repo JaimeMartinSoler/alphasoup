@@ -14,9 +14,9 @@ class AlphaSoup:
         # args
         self.rows = rows
         self.cols = cols
-        self.letters = letters
+        self.letters = [letter.upper() for letter in letters]
         self.letters_weights_map = self._build_letters_weights_map(letters_weights_map)
-        self.words = words
+        self.words = [word.upper() for word in words]
         self.ways = self._build_ways(ways)
 
         # init
@@ -46,7 +46,7 @@ class AlphaSoup:
         self.letters_weights_map = {letter: 1.0 for letter in self.letters}
         if letters_weights_map is not None and len(letters_weights_map) > 0:
             for letter, weight in letters_weights_map.items():
-                self.letters_weights_map[letter] = weight
+                self.letters_weights_map[letter.upper()] = weight
         return self.letters_weights_map
 
     def _build_words_data(self):
