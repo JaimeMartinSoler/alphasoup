@@ -1,14 +1,36 @@
 global:
+
+  log:
+    level: INFO  # DEBUG, INFO, WARNING, ERROR
+
+  ways:
+    ways_easy: &WAYS_EASY [ E, S ]
+    ways_normal: &WAYS_NORMAL [ E, SE, S ]
+    ways_ALL: &WAYS_ALL [ E, SE, S, SW, W, NW, N, NE ]
+
   lang:
     es:
       letters: &LETTERS_ES [A, B, C, D, E, F, G, H, I, J, K, L, M, N, Ñ, O, P, Q, R, S, T, U, V, W, X, Y, Z]
       # https://es.wikipedia.org/wiki/Frecuencia_de_aparici%C3%B3n_de_letras#Frecuencia_de_aparici%C3%B3n_de_letras_en_espa%C3%B1ol
-      #letters_weights_map: &LETTERS_WEIGHTS_ES {K: 0.5, Ñ: 0.2, Q: 0.5, W: 0.2, X: 0.2, Y: 0.5}
+      #letters_weights_map: &LETTERS_WEIGHTS_ES {K: 0.5, Ñ: 0.2, Q: 0.5, W: 0.2, X: 0.2, Y: 0.5}  # custom alternative
       letters_weights_map: &LETTERS_WEIGHTS_ES {A: 0.1253, B: 0.0142, C: 0.0468, D: 0.0586, E: 0.1368, F: 0.0069, G: 0.0101, H: 0.0070, I: 0.0625, J: 0.0044, K: 0.0002, L: 0.0497, M: 0.0315, N: 0.0671, Ñ: 0.0031, O: 0.0868, P: 0.0251, Q: 0.0088, R: 0.0687, S: 0.0798, T: 0.0463, U: 0.0393, V: 0.0090, W: 0.0001, X: 0.0022, Y: 0.0090, Z: 0.0052}
-  ways:
-    ways_easy: &WAYS_EASY [E, S]
-    ways_normal: &WAYS_NORMAL [E, SE, S]
-    ways_ALL: &WAYS_ALL [E, SE, S, SW, W, NW, N, NE]
+
+  output:
+    # dirs/paths
+    dir_rel: output/pages
+    dir_rel_solution: output/pages_solution
+    subdir_pages_html: pages_html
+    subdir_pages_pdfa5: pages_pdfa5
+    subdir_pages_pdfa5_merger: pages_pdfa5_merger
+    subdir_pages_pdfa4: pages_pdfa4
+    subdir_pages_pdfa4_merger: pages_pdfa4_merger
+    # settings
+    solution: True
+    html: False
+    pdfa5: False
+    pdfa5_merger: True
+    pdfa4: False
+    pdfa4_merger: False
 
 defaults:
 

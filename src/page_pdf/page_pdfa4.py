@@ -17,7 +17,7 @@ class PagePDFA4:
         self.dir_rel_pdfa4 = dir_rel_pdfa4
         self.filename_output = filename_output
         self.flip = flip
-        self.path_rel_pdfa4 = f'{self.dir_rel_pdfa4}{os.sep}{self.filename_output}'
+        self.path_rel_pdfa4 = f'{self.dir_rel_pdfa4}/{self.filename_output}'
 
         # path, dir
         self.path_pdfa5_left = get_fullpath_from_root(self.path_rel_pdfa5_left)

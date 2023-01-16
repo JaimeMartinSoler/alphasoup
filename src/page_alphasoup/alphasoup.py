@@ -2,7 +2,8 @@ import copy
 import logging
 import random
 
-from way import Way
+from page_alphasoup.position import Position
+from page_alphasoup.way import Way
 
 logger = logging.getLogger()
 
@@ -14,9 +15,9 @@ class AlphaSoup:
         # args
         self.rows = rows
         self.cols = cols
-        self.letters = [letter.upper() for letter in letters]
-        self.letters_weights_map = self._build_letters_weights_map(letters_weights_map)
-        self.words = [word.upper() for word in words]
+        self.letters = [letter.upper() for letter in letters]  # case-insensitive (only upper letters)
+        self.letters_weights_map = self._build_letters_weights_map(letters_weights_map)  # case-insensitive (only upper letters)
+        self.words = [word.upper() for word in words]  # case-insensitive (only upper letters)
         self.ways = self._build_ways(ways)
 
         # init
@@ -46,7 +47,7 @@ class AlphaSoup:
         self.letters_weights_map = {letter: 1.0 for letter in self.letters}
         if letters_weights_map is not None and len(letters_weights_map) > 0:
             for letter, weight in letters_weights_map.items():
-                self.letters_weights_map[letter.upper()] = weight
+                self.letters_weights_map[letter.upper()] = weight  # case-insensitive (only upper letters)
         return self.letters_weights_map
 
     def _build_words_data(self):
@@ -250,35 +251,4 @@ class AlphaSoup:
 
         return surrounding_letters
 
-
-class AlphaSoupBuilder:
-
-    @staticmethod
-    def build(config):
-        return AlphaSoup(config['rows'], config['cols'], config['letters'], config['letters_weights_map'],
-                         config['words'], config['ways'])
-
-
-class Position:
-
-    def __init__(self, row, col):
-        self.row = row
-        self.col = col
-
-    def __str__(self):
-        return f"[{self.row}][{self.col}]"
-
-    def __eq__(self, other):
-        if isinstance(other, Position):
-            return self.row == other.row and self.col == other.col
-        return False
-
-    def __hash__(self):
-        return hash((self.row, self.col))
-
-    def is_in(self, positions):
-        for p in positions:
-            if self == p:
-                return True
-        return False
 

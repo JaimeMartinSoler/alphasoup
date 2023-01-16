@@ -15,7 +15,7 @@ class PagePDFmerger:
         self.path_rel_pdf_list = path_rel_pdf_list
         self.dir_rel_pdf_merger = dir_rel_pdf_merger
         self.filename_output = filename_output
-        self.path_rel_pdf_merger = f'{self.dir_rel_pdf_merger}{os.sep}{self.filename_output}'
+        self.path_rel_pdf_merger = f'{self.dir_rel_pdf_merger}/{self.filename_output}'
 
         # path, dir
         self.path_pdf_list = [get_fullpath_from_root(p) for p in self.path_rel_pdf_list]

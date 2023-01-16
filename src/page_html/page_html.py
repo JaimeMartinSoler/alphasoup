@@ -1,6 +1,5 @@
 import logging
 import os
-from pathlib import Path
 import shutil
 
 from utils.general_utils import split_list_in_chunks_equals
@@ -59,20 +58,22 @@ class PageHTML:
         self.td_soup_font_size_factor = PageHTML.TD_SOUP_FONT_SIZE_FACTOR_DEFAULT
         self.build_config_params()
 
-        # dir_rel
+        # dir/path rel
         self.dir_rel_page_input = dir_rel_page_input
         self.dir_rel_common_input = dir_rel_common_input
         self.dir_rel_page_output = dir_rel_page_output
         self.dir_rel_common_output = dir_rel_common_output
         self.html_filename_output = html_filename_output
+        self.path_rel_html_output = f"{self.dir_rel_page_output}/html/{self.html_filename_output}"
+        self.path_rel_css_output = f"{self.dir_rel_page_output}/html/styles.css"
 
-        # path (full)
-        self.dir_page_input = get_fullpath_from_root(dir_rel_page_input)
-        self.dir_common_input = get_fullpath_from_root(dir_rel_common_input)
-        self.dir_page_output = get_fullpath_from_root(dir_rel_page_output)
-        self.path_html_output = f"{self.dir_page_output}{os.sep}html{os.sep}{self.html_filename_output}"
-        self.path_css_output = f"{self.dir_page_output}{os.sep}html{os.sep}styles.css"
-        self.dir_common_output = get_fullpath_from_root(dir_rel_common_output)
+        # dir/path full
+        self.dir_page_input = get_fullpath_from_root(self.dir_rel_page_input)
+        self.dir_common_input = get_fullpath_from_root(self.dir_rel_common_input)
+        self.dir_page_output = get_fullpath_from_root(self.dir_rel_page_output)
+        self.path_html_output = get_fullpath_from_root(self.path_rel_html_output)
+        self.path_css_output = get_fullpath_from_root(self.path_rel_css_output)
+        self.dir_common_output = get_fullpath_from_root(self.dir_rel_common_output)
 
         # validate
         self._validate()
@@ -82,6 +83,7 @@ class PageHTML:
         self._copy_files()
         self._build_and_replace_output_html()
         self._build_and_replace_output_css()
+        return self.path_rel_html_output
 
     def _validate(self):
         if self.alphasoup.rows > PageHTML.ALPHASOUP_ROWS_MAX:
