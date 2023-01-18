@@ -48,5 +48,6 @@ input/
 # local
 output/
 notebooks/
+config/config_*
 
 

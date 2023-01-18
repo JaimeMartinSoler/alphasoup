@@ -3,12 +3,12 @@ FROM python:3.9
 # paths local
 ENV PATH_ROOT_LOCAL=.
 ENV PATH_SRC_LOCAL=${PATH_ROOT_LOCAL}/src
-ENV PATH_CONFIG_LOCAL=${PATH_ROOT_LOCAL}/config
+ENV PATH_CONFIG_LOCAL=${PATH_ROOT_LOCAL}/config/config.yml
 ENV PATH_TEMPLATES_LOCAL=${PATH_ROOT_LOCAL}/templates
 # paths image
 ENV PATH_ROOT=/alphasoup
 ENV PATH_SRC=${PATH_ROOT}/src
-ENV PATH_CONFIG=${PATH_ROOT}/config
+ENV PATH_CONFIG=${PATH_ROOT}/config/config.yml
 ENV PATH_TEMPLATES=${PATH_ROOT}/templates
 
 # requirements
